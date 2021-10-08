@@ -17,6 +17,7 @@ export default class PageTitle extends Vue {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+
 .page-title {
   display: flex;
   justify-content: center;
@@ -31,9 +32,22 @@ export default class PageTitle extends Vue {
 
   &__subtitle {
     font-size: 1.7rem;
+=======
+
+  &__title {
+    font-size: 3rem;
+    color: white;
+    margin: 0.3rem 0rem;
+  }
+
+  &__subtitle {
+    font-size: 1rem;
     color: white;
     font-weight: 400;
     margin: 0.3rem 0rem;
   }
 }
+
+}
+
 </style>
