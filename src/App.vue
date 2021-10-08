@@ -33,10 +33,7 @@ a {
 }
 
 body {
-<<<<<<< HEAD
 
-=======
->>>>>>> 348be1daa15efae7e1f80ccdf7ae21451c322621
   background-color: var(--main-color);
   --main-color: #073b4c;
 }

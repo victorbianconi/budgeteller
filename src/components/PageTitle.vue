@@ -27,13 +27,13 @@ export default class PageTitle extends Vue {
 
 
   &__title {
-    font-size: 3rem;
+    font-size: 4.5rem;
     color: white;
     margin: 0.3rem 0rem;
   }
 
   &__subtitle {
-    font-size: 1rem;
+    font-size: 1.8rem;
     color: white;
     font-weight: 400;
     margin: 0.3rem 0rem;
