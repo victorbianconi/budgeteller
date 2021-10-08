@@ -21,7 +21,7 @@ p, h1, h2, h3, a {
 }
 
 body {
-  background-color: #031a2e ;
+  background-color: #BE92A2 ;
 }
 
 #nav {
