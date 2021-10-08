@@ -17,6 +17,10 @@
   color: #2c3e50;
 }
 
+p, h1, h2, h3, a {
+  font-family:'Montserrat'
+}
+
 #nav {
   padding: 30px;
 
