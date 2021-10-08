@@ -1,38 +1,75 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <div class="nav">
+      <div>
+        <h1 class="nav__logo">budgeteller</h1>
+      </div>
+      <div>
+        <router-link to="/">Overview</router-link>
+        <router-link to="/settings">Settings</router-link>
+      </div>
     </div>
     <router-view />
   </div>
 </template>
 
 <style lang="scss">
-
 * {
   padding: 0rem;
   margin: 0rem;
   box-sizing: border-box;
 }
 
-p, h1, h2, h3, a {
-  font-family:'Montserrat'
+html {
+  font-size: 67.5%;
+}
+
+p,
+h1,
+h2,
+h3,
+a {
+  font-family: "Montserrat";
 }
 
 body {
-  background-color: #BE92A2 ;
+
+  background-color: var(--main-color);
+  --main-color: #073b4c;
 }
 
-#nav {
+.nav {
   padding: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__logo {
+    color: white;
+    margin: 0rem 1rem;
+    font-weight: 600;
+    user-select: none;
+  }
 
   a {
+    margin: 0rem 1rem;
     font-weight: bold;
-    color: #2c3e50;
+    color: black;
+    padding: 1rem 2rem;
+    background-color: white;
+    border-radius: 1rem;
+    text-decoration: none;
+    font-size: 1.4rem;
+    transition: 0.25s ease-in-out;
+    font-weight: 500;
+
+    &:hover {
+      box-shadow: 0px 0px 30px -4px grey;
+    }
 
     &.router-link-exact-active {
-      color: #42b983;
+      color: var(--main-color);
+      box-shadow: 0px 0px 30px -4px grey;
     }
   }
 }
