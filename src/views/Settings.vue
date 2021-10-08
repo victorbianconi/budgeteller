@@ -1,6 +1,6 @@
 <template>
   <div class="settings">
-    <PageTitle title="Settings" subtitle="Budgeteller tells you how much money you spend and how you can save more money."/>
+    <PageTitle title="Settings" subtitle="Select and edit your preferences." />
   </div>
 </template>
 
@@ -16,10 +16,8 @@ import PageTitle from "@/components/PageTitle.vue"; // @ is an alias to /src
 export default class Settings extends Vue {}
 </script>
 
-
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-
 .settings {
   display: flex;
   justify-content: center;

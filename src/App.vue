@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <div id="nav">
+    <div class="nav">
       <div>
-        <h1 id="nav__logo">budgeteller</h1>
+        <h1 class="nav__logo">budgeteller</h1>
       </div>
       <div>
         <router-link to="/">Overview</router-link>
@@ -14,7 +14,6 @@
 </template>
 
 <style lang="scss">
-
 * {
   padding: 0rem;
   margin: 0rem;
@@ -25,22 +24,22 @@ html {
   font-size: 67.5%;
 }
 
-p, h1, h2, h3, a {
-  font-family:'Montserrat'
+p,
+h1,
+h2,
+h3,
+a {
+  font-family: "Montserrat";
 }
 
 body {
-<<<<<<< Updated upstream
-  background-color: #031a2e ;
-=======
-  background-color: var(--main-color) ;
-  --main-color: #073B4C;
->>>>>>> Stashed changes
+  background-color: var(--main-color);
+  --main-color: #073b4c;
 }
 
-#nav {
+.nav {
   padding: 30px;
-  display:flex;
+  display: flex;
   justify-content: space-between;
   align-items: center;
 
@@ -56,11 +55,12 @@ body {
     font-weight: bold;
     color: black;
     padding: 1rem 2rem;
-    background-color:white;
-    border-radius:1rem;
+    background-color: white;
+    border-radius: 1rem;
     text-decoration: none;
     font-size: 1.4rem;
-    transition:0.25s ease-in-out;
+    transition: 0.25s ease-in-out;
+    font-weight: 500;
 
     &:hover {
       box-shadow: 0px 0px 30px -4px grey;
@@ -72,6 +72,4 @@ body {
     }
   }
 }
-
-
 </style>
