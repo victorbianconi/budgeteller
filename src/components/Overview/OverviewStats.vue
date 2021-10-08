@@ -2,15 +2,17 @@
   <div class="overview-stats">
       <h3 class="overview-stats__todays-date">{{ todaysDate }}</h3>
       <div class="overview-stats__container">
-
+          <OverviewStatsExpenses/>
       </div>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Prop, Vue } from "vue-property-decorator";
-
-@Component
+import OverviewStatsExpenses from "@/components/Overview/OverviewStatsExpenses.vue";
+@Component({
+  components: {OverviewStatsExpenses}
+})
 export default class OverviewStats extends Vue {
   @Prop() private stats!: string;
   @Prop() private todaysDate!: Date;

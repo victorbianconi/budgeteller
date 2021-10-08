@@ -22,7 +22,6 @@ import dayjs from "dayjs";
 })
 export default class Overview extends Vue {
   todaysDate: number = dayjs(new Date()).format("DD MMMM YYYY");
-
 }
 </script>
 
