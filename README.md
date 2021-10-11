@@ -1,5 +1,4 @@
-# typescript-app
-
+# Budgeteller
 ## Project setup
 ```
 npm install
