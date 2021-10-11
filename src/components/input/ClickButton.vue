@@ -7,7 +7,7 @@
       aria-pressed="true"
       @click="clickButton"
     >
-      <span v-if="text" class="btn__text">{{ text }}</span>
+      <span class="btn__text"><slot></slot></span>
       <component
         :is="icon"
         :class="`btn__icon ${icon}`"
@@ -96,6 +96,23 @@ export default class ClickButton extends Vue {
       background-color: var(--darker-blue);
       color: var(--main-color);
       border: 0.2rem solid var(--main-color);
+    }
+  }
+
+  &--v2 {
+    background-color: var(--main-color);
+    color: white;
+    padding: 2rem 1rem;
+    width: 95%;
+    border: 0.2rem solid transparent;
+    transition: 0.25s ease-in-out all;
+    font-size:1.2rem;
+    letter-spacing: 0.2rem;
+    text-transform: uppercase;
+
+    &:hover {
+      background-color: var(--darker-blue);
+      color: var(--main-color);
     }
   }
 }
