@@ -1,11 +1,30 @@
 <template>
   <div class="add-new-product">
     <div class="add-new-product__modal">
-      <click-button @click="$emit('goBackToAddExpense')" icon="arrowBackIcon" status="back" positioning="absolute"></click-button>
+      <click-button
+        @click="$emit('goBackToAddExpense')"
+        icon="arrowBackIcon"
+        status="back"
+        positioning="absolute"
+      ></click-button>
       <h3 class="add-new-product__title">{{ modalTitle }}</h3>
       <p class="add-new-product__subtitle" @click="$emit('closeModal')">
         {{ modalSubtitle }}
       </p>
+      <div class="add-new-product__form">
+        <FormulateForm :values="formValues">
+          <h4 class="add-new-product__form__title">Product information</h4>
+          <FormulateInput type="text" name="name" label="Name" />
+          <FormulateInput type="text" name="email" label="Category" />
+          <h4 class="add-new-product__form__title">Transaction information</h4>
+          <FormulateInput type="number" name="price" label="Price" />
+          <FormulateInput type="number" name="quantity" label="Quantity" />
+          <FormulateInput
+            type="submit"
+            label="Create new product and add transaction"
+          />
+        </FormulateForm>
+      </div>
     </div>
   </div>
 </template>
@@ -13,9 +32,9 @@
 <script lang="ts">
 import { Component, Prop, Vue } from "vue-property-decorator";
 import ClickButton from "@/components/input/ClickButton.vue";
-import VueFormulate from '@braid/vue-formulate'
+import VueFormulate from "@braid/vue-formulate";
 
-Vue.use(VueFormulate)
+Vue.use(VueFormulate);
 
 @Component({
   components: { ClickButton },
@@ -60,9 +79,9 @@ export default class AddNewProduct extends Vue {
 
   &__subtitle {
     font-size: 1.5rem;
-    margin: 1rem 0rem;
+    margin: 0.2rem 0rem;
     text-align: center;
-    width:90%;
+    width: 90%;
     line-height: 2.3rem;
   }
 
@@ -77,6 +96,15 @@ export default class AddNewProduct extends Vue {
     border: none;
     background-color: var(--main-color);
   }
+  &__form {
+    margin: 1rem 0rem;
+
+    &__title {
+      font-size: 1.4rem;
+    }
+
+  }
+
 }
 
 @keyframes fadeIn {

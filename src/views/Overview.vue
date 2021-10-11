@@ -8,7 +8,7 @@
       v-if="isAddExpenseModal"
     />
     <add-new-product
-      modalTitle="Create a new product"
+      modalTitle="Create a new product and add transaction"
       modalSubtitle="Type the product info below including product name and category."
       @closeModal="closeAddExpenseModal"
       @goBackToAddExpense="openAddExpenseModal"
