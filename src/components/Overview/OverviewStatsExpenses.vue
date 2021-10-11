@@ -1,7 +1,7 @@
 <template>
   <div class="overview-stats-expenses">
       <h4 class="overview-stats-expenses__title">Total expenses</h4>
-      <p class="overview-stats-expenses__number">$23</p>
+      <p class="overview-stats-expenses__number">$</p>
     </div>
 </template>
 

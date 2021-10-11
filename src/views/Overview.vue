@@ -1,11 +1,29 @@
 <template>
   <div class="overview">
-    <add-expense modalTitle="Add expense" modalSubtitle="To add an expense, create a new product or select an existing one." @closeModal="closeAddExpenseModal" v-if="isAddExpenseModal" />
+    <add-expense
+      modalTitle="Add expense"
+      modalSubtitle="To add an expense, create a new product or select an existing one."
+      @closeModal="closeAddExpenseModal"
+      @createNewProduct="openAddNewProductModal"
+      v-if="isAddExpenseModal"
+    />
+    <add-new-product
+      modalTitle="Create a new product"
+      modalSubtitle="Type the product info below including product name and category."
+      @closeModal="closeAddExpenseModal"
+      @goBackToAddExpense="openAddExpenseModal"
+      v-if="isAddNewProductModal"
+    />
     <page-title
       title="Overview"
       subtitle="Budgeteller tells you how much money you spend and how you can save more money."
     />
-    <click-button @click="openAddExpenseModal" positioning="left" status="v1" icon="addIcon">
+    <click-button
+      @click="openAddExpenseModal"
+      positioning="left"
+      status="v1"
+      icon="addIcon"
+    >
       Add Expense
     </click-button>
     <overview-stats stats="stats" :todays-date="todaysDate" />
@@ -19,9 +37,11 @@ import OverviewStats from "@/components/Overview/OverviewStats.vue";
 import dayjs from "dayjs";
 import ClickButton from "@/components/input/ClickButton.vue";
 import AddExpense from "@/components/Overview/AddExpense.vue";
+import AddNewProduct from "@/components/Overview/AddNewProduct.vue";
 
 @Component({
   components: {
+    AddNewProduct,
     AddExpense,
     PageTitle,
     OverviewStats,
@@ -31,14 +51,24 @@ import AddExpense from "@/components/Overview/AddExpense.vue";
 export default class Overview extends Vue {
   todaysDate: number = dayjs(new Date()).format("DD MMMM YYYY");
   isAddExpenseModal = false;
+  isAddNewProductModal = false;
 
-  openAddExpenseModal(){
-    this.isAddExpenseModal = true
+  openAddExpenseModal() {
+    this.isAddExpenseModal = true;
+    this.isAddNewProductModal = false;
   }
-  closeAddExpenseModal(){
-    this.isAddExpenseModal = false
+  closeAddExpenseModal() {
+    this.isAddExpenseModal = false;
   }
 
+  openAddNewProductModal() {
+    this.isAddExpenseModal = false;
+    this.isAddNewProductModal = true;
+  }
+
+  closeAddNewProductModal() {
+    this.isAddNewProductModal = false;
+  }
 }
 </script>
 

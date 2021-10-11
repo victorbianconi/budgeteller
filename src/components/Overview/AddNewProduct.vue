@@ -1,26 +1,26 @@
 <template>
-  <div class="add-expense">
-    <div class="add-expense__modal">
-      <h3 class="add-expense__title">{{ modalTitle }}</h3>
-      <p class="add-expense__subtitle" @click="$emit('closeModal')">
+  <div class="add-new-product">
+    <div class="add-new-product__modal">
+      <click-button @click="$emit('goBackToAddExpense')" icon="arrowBackIcon" status="back" positioning="absolute"></click-button>
+      <h3 class="add-new-product__title">{{ modalTitle }}</h3>
+      <p class="add-new-product__subtitle" @click="$emit('closeModal')">
         {{ modalSubtitle }}
       </p>
-      <div class="add-expense__buttons-container">
-        <click-button @click="$emit('createNewProduct')" status="v2" positioning="center">New Product</click-button>
-        <click-button status="v2" positioning="center">Existing Product</click-button>
-      </div>
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Prop, Vue } from "vue-property-decorator";
-import OverviewStatsExpenses from "@/components/Overview/OverviewStatsExpenses.vue";
 import ClickButton from "@/components/input/ClickButton.vue";
+import VueFormulate from '@braid/vue-formulate'
+
+Vue.use(VueFormulate)
+
 @Component({
   components: { ClickButton },
 })
-export default class AddExpense extends Vue {
+export default class AddNewProduct extends Vue {
   @Prop() private modalTitle!: string;
   @Prop() private modalSubtitle!: string;
 }
@@ -28,7 +28,7 @@ export default class AddExpense extends Vue {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-.add-expense {
+.add-new-product {
   width: 100vw;
   height: 100vh;
   position: fixed;
@@ -44,11 +44,12 @@ export default class AddExpense extends Vue {
     border-radius: 1rem;
     background-color: white;
     box-shadow: 15px 15px 135px black;
-    animation: scaleUp 0.25s ease forwards;
+    animation: fadeIn 0.2s ease-in-out forwards;
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
     align-items: center;
+    position: relative;
   }
 
   &__title {
@@ -78,14 +79,12 @@ export default class AddExpense extends Vue {
   }
 }
 
-@keyframes scaleUp {
+@keyframes fadeIn {
   from {
-    transform: scale(0);
     opacity: 0;
   }
   to {
     opacity: 1;
-    transform: scale(1);
   }
 }
 </style>

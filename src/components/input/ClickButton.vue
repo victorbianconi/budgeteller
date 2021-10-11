@@ -37,11 +37,14 @@ import { Component, Prop } from "vue-property-decorator";
 import { Location } from "vue-router";
 // available icons
 import addIcon from "@carbon/icons-vue/es/add/32";
+import arrowBackIcon from "@carbon/icons-vue/es/arrow--left/32";
+
 
 @Component({
   name: "ClickButton",
   components: {
     addIcon,
+    arrowBackIcon,
   },
 })
 export default class ClickButton extends Vue {
@@ -73,6 +76,14 @@ export default class ClickButton extends Vue {
   &--right {
     justify-content: flex-end;
   }
+
+  &--absolute {
+    position: absolute;
+    left: 3%;
+    top: 0%;
+    width: auto;
+  }
+
 }
 
 .btn {
@@ -109,6 +120,21 @@ export default class ClickButton extends Vue {
     font-size:1.2rem;
     letter-spacing: 0.2rem;
     text-transform: uppercase;
+
+    &:hover {
+      background-color: var(--darker-blue);
+      color: var(--main-color);
+    }
+  }
+
+  &--back {
+    background-color: var(--main-color);
+    color: white;
+    padding: 1rem 1rem;
+    width: auto;
+    border: 0.2rem solid transparent;
+    transition: 0.25s ease-in-out all;
+    font-size:1.2rem;
 
     &:hover {
       background-color: var(--darker-blue);
