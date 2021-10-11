@@ -38,6 +38,7 @@ import { Location } from "vue-router";
 // available icons
 import addIcon from "@carbon/icons-vue/es/add/32";
 import arrowBackIcon from "@carbon/icons-vue/es/arrow--left/32";
+import closeIcon from "@carbon/icons-vue/es/close/32";
 
 
 @Component({
@@ -45,6 +46,7 @@ import arrowBackIcon from "@carbon/icons-vue/es/arrow--left/32";
   components: {
     addIcon,
     arrowBackIcon,
+    closeIcon
   },
 })
 export default class ClickButton extends Vue {
@@ -96,6 +98,7 @@ export default class ClickButton extends Vue {
   font-weight: 600;
   font-size: 1.4rem;
   cursor: pointer;
+  transition: transform 0.2s ease;
 
   &--v1 {
     background-color: transparent;
@@ -108,6 +111,11 @@ export default class ClickButton extends Vue {
       color: var(--main-color);
       border: 0.2rem solid var(--main-color);
     }
+
+    &:active {
+      transform: scale(0.98)
+    }
+
   }
 
   &--v2 {

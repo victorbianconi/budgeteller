@@ -1,6 +1,7 @@
 <template>
   <div class="add-expense">
     <div class="add-expense__modal">
+      <click-button @click="$emit('closeModal')" icon="closeIcon" status="back" positioning="absolute"></click-button>
       <h3 class="add-expense__title">{{ modalTitle }}</h3>
       <p class="add-expense__subtitle" @click="$emit('closeModal')">
         {{ modalSubtitle }}
@@ -44,7 +45,7 @@ export default class AddExpense extends Vue {
     border-radius: 1rem;
     background-color: white;
     box-shadow: 15px 15px 135px black;
-    animation: scaleUp 0.25s ease forwards;
+    animation: scaleUp 0.2s ease forwards;
     display: flex;
     justify-content: flex-start;
     flex-direction: column;

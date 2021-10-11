@@ -44,7 +44,7 @@ export default class AddNewProduct extends Vue {
     border-radius: 1rem;
     background-color: white;
     box-shadow: 15px 15px 135px black;
-    animation: fadeIn 0.2s ease-in-out forwards;
+    animation: fadeIn 0.1s ease forwards;
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
