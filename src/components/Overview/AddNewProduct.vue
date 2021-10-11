@@ -12,9 +12,15 @@
         {{ modalSubtitle }}
       </p>
       <div class="add-new-product__form">
-        <FormulateForm :values="formValues">
+        <FormulateForm>
           <h4 class="add-new-product__form__title">Product information</h4>
-          <FormulateInput type="text" name="name" label="Name" />
+          <FormulateInput
+            label-class="add-new-product__form__label"
+            :input-class="(context, classes) => ['add-new-product__form__input'].concat(classes)"
+            type="text"
+            name="name"
+            label="Name"
+          />
           <FormulateInput type="text" name="email" label="Category" />
           <h4 class="add-new-product__form__title">Transaction information</h4>
           <FormulateInput type="number" name="price" label="Price" />
@@ -103,8 +109,16 @@ export default class AddNewProduct extends Vue {
       font-size: 1.4rem;
     }
 
+    &__label {
+      font-size: 1.2rem;
+      font-family: "Montserrat";
+    }
+    &__input {
+      padding: 1rem 1rem;
+      border: none;
+      border-radius: 1rem;
+    }
   }
-
 }
 
 @keyframes fadeIn {
