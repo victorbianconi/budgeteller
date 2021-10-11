@@ -23,7 +23,7 @@ export default class OverviewStats extends Vue {
 <style scoped lang="scss">
 .overview-stats {
   width: 90%;
-  margin: 4rem 0rem;
+  margin: 2.5rem 0rem;
   display: flex;
   justify-content: flex-start;
   align-items: center;

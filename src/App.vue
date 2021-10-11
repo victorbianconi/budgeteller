@@ -37,6 +37,7 @@ body {
 
   background-color: var(--main-color);
   --main-color: #073b4c;
+  --darker-blue:#EEE2DF;
 }
 
 .nav {
