@@ -1,24 +1,34 @@
 <template>
-  <button
-    v-if="!routerLink"
-    :class="['btn', `btn--${status}`]"
-    :disabled="status === 'disabled'"
-    aria-pressed="true"
-    @click="clickButton"
-  >
-    <span v-if="text" class="btn__text">{{ text }}</span>
-    <component :is="icon" :class="`btn__icon ${icon}`" :alt="`${icon}-icon`" />
-  </button>
-  <router-link v-else :class="[`btn--${status}`, 'btn link']" :to="routerLink">
-    <span class="btn__text" @click="clickButton"><slot></slot></span>
-    <component
-      :is="icon"
-      v-if="icon"
-      :class="`btn__icon ${icon}`"
-      :alt="`${icon}-icon`"
+  <div :class="`btn__container btn__container--${positioning}`">
+    <button
+      v-if="!routerLink"
+      :class="['btn', `btn--${status}`]"
+      :disabled="status === 'disabled'"
+      aria-pressed="true"
       @click="clickButton"
-    />
-  </router-link>
+    >
+      <span v-if="text" class="btn__text">{{ text }}</span>
+      <component
+        :is="icon"
+        :class="`btn__icon ${icon}`"
+        :alt="`${icon}-icon`"
+      />
+    </button>
+    <router-link
+      v-else
+      :class="[`btn--${status}`, 'btn link']"
+      :to="routerLink"
+    >
+      <span class="btn__text" @click="clickButton"><slot></slot></span>
+      <component
+        :is="icon"
+        v-if="icon"
+        :class="`btn__icon ${icon}`"
+        :alt="`${icon}-icon`"
+        @click="clickButton"
+      />
+    </router-link>
+  </div>
 </template>
 
 <script lang="ts">
@@ -39,6 +49,7 @@ export default class ClickButton extends Vue {
   @Prop({ required: false, default: "" }) text!: string;
   @Prop({ required: false, default: "" }) routerLink!: Location;
   @Prop({ required: false, default: "" }) status!: string;
+  @Prop({ required: false, default: "" }) positioning!: string;
 
   clickButton(event: Event) {
     this.$emit("click", event);
@@ -47,6 +58,23 @@ export default class ClickButton extends Vue {
 </script>
 
 <style lang="scss" scoped>
+.btn__container {
+  display: flex;
+  width: 90%;
+  margin: 2rem 0rem;
+  &--left {
+    justify-content: flex-start;
+  }
+
+  &--center {
+    justify-content: center;
+  }
+
+  &--right {
+    justify-content: flex-end;
+  }
+}
+
 .btn {
   display: flex;
   justify-content: center;
@@ -69,8 +97,6 @@ export default class ClickButton extends Vue {
       color: var(--main-color);
       border: 0.2rem solid var(--main-color);
     }
-
   }
-
 }
 </style>
