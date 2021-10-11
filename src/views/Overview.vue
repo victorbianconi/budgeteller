@@ -1,10 +1,11 @@
 <template>
   <div class="overview">
-    <PageTitle
+    <page-title
       title="Overview"
       subtitle="Budgeteller tells you how much money you spend and how you can save more money."
     />
-    <OverviewStats stats="stats" :todays-date="todaysDate" />
+    <add-expense/>
+    <overview-stats stats="stats" :todays-date="todaysDate" />
   </div>
 </template>
 
@@ -13,9 +14,11 @@ import { Component, Vue } from "vue-property-decorator";
 import PageTitle from "@/components/PageTitle.vue"; // @ is an alias to /src
 import OverviewStats from "@/components/Overview/OverviewStats.vue";
 import dayjs from "dayjs";
+import AddExpense from "@/components/Overview/AddExpense.vue";
 
 @Component({
   components: {
+    AddExpense,
     PageTitle,
     OverviewStats,
   },
