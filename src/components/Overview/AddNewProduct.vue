@@ -12,7 +12,11 @@
         {{ modalSubtitle }}
       </p>
       <div class="add-new-product__form">
-        <FormulateForm class="add-new-product__formulate-form">
+        <FormulateForm
+          @submit="createProductTransaction"
+          :values="formValues"
+          class="add-new-product__formulate-form"
+        >
           <div class="add-new-product__form__inputs">
             <h4 class="add-new-product__form__title">Product information</h4>
             <FormulateInput
@@ -67,7 +71,9 @@
             />
           </div>
 
-          <click-button status="v2--widthAuto"
+          <click-button
+            type="submit"
+            status="v2--widthAuto"
             >Create product and add transaction</click-button
           >
         </FormulateForm>
@@ -89,6 +95,16 @@ Vue.use(VueFormulate);
 export default class AddNewProduct extends Vue {
   @Prop() private modalTitle!: string;
   @Prop() private modalSubtitle!: string;
+
+  formValues = {
+    name: "",
+    category: "",
+  };
+
+  createProductTransaction(data: {name: string, category: string}) {
+    console.log("Create product and transaction")
+    console.log(data)
+  }
 }
 </script>
 
