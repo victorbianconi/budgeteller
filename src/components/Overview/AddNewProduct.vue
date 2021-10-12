@@ -28,11 +28,13 @@
               "
               type="text"
               name="name"
+              validation="required"
               placeholder="Name (e.g. Eggs)"
             />
             <FormulateInput
               label-class="add-new-product__form__label"
               wrapper-class="add-new-product__form__wrapper"
+              validation="required"
               :input-class="
                 (context, classes) =>
                   ['add-new-product__form__input'].concat(classes)
@@ -50,6 +52,7 @@
             <FormulateInput
               label-class="add-new-product__form__label"
               wrapper-class="add-new-product__form__wrapper"
+              validation="required"
               :input-class="
                 (context, classes) =>
                   ['add-new-product__form__input'].concat(classes)
@@ -61,6 +64,7 @@
             <FormulateInput
               label-class="add-new-product__form__label"
               wrapper-class="add-new-product__form__wrapper"
+              validation="required"
               :input-class="
                 (context, classes) =>
                   ['add-new-product__form__input'].concat(classes)
@@ -99,9 +103,11 @@ export default class AddNewProduct extends Vue {
   formValues = {
     name: "",
     category: "",
+    price:"",
+    quantity:""
   };
 
-  createProductTransaction(data: {name: string, category: string}) {
+  createProductTransaction(data: {name: string, category: string, price:number, quantity:number}) {
     console.log("Create product and transaction")
     console.log(data)
   }
@@ -110,6 +116,14 @@ export default class AddNewProduct extends Vue {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss">
+
+.formulate-input-error {
+  color: red;
+  font-family: MOntserrat;
+  list-style-type: none;
+  font-size: 1.3rem;
+}
+
 .add-new-product {
   width: 100vw;
   height: 100vh;
