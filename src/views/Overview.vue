@@ -21,6 +21,7 @@
     <click-button
       @click="openAddExpenseModal"
       positioning="left"
+      containerWidthPercentage="90"
       status="v1"
       icon="addIcon"
     >

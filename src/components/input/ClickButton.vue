@@ -1,5 +1,5 @@
 <template>
-  <div :class="`btn__container btn__container--${positioning}`">
+  <div :class="`btn__container btn__container--${positioning} btn__container--width--${containerWidthPercentage}`">
     <button
       v-if="!routerLink"
       :class="['btn', `btn--${status}`]"
@@ -55,6 +55,7 @@ export default class ClickButton extends Vue {
   @Prop({ required: false, default: "" }) routerLink!: Location;
   @Prop({ required: false, default: "" }) status!: string;
   @Prop({ required: false, default: "" }) positioning!: string;
+  @Prop({ required: false, default: "" }) containerWidthPercentage!: string;
 
   clickButton(event: Event) {
     this.$emit("click", event);
@@ -65,11 +66,19 @@ export default class ClickButton extends Vue {
 <style lang="scss" scoped>
 .btn__container {
   display: flex;
-  width: 90%;
   margin: 2rem 0rem;
   &--left {
     justify-content: flex-start;
   }
+
+  &--width--90 {
+    width: 90%;
+  }
+
+  &--width--100 {
+    width: 100%;
+  }
+
 
   &--center {
     justify-content: center;

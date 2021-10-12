@@ -24,7 +24,7 @@
               "
               type="text"
               name="name"
-              placeholder="Name"
+              placeholder="Name (e.g. Eggs)"
             />
             <FormulateInput
               label-class="add-new-product__form__label"
@@ -35,7 +35,7 @@
               "
               type="text"
               name="category"
-              placeholder="Category"
+              placeholder="Category (e.g. Groceries)"
             />
           </div>
 
@@ -52,7 +52,7 @@
               "
               type="number"
               name="price"
-              placeholder="Price"
+              placeholder="Price (€)"
             />
             <FormulateInput
               label-class="add-new-product__form__label"
@@ -103,9 +103,9 @@ export default class AddNewProduct extends Vue {
   align-items: center;
 
   &__form__inputs {
-    margin: .5rem 0rem;
-    display:flex;
-    justify-content:center;
+    margin: 0.5rem 0rem;
+    display: flex;
+    justify-content: center;
     align-items: center;
     flex-direction: column;
   }
@@ -119,9 +119,9 @@ export default class AddNewProduct extends Vue {
 
   &__modal {
     margin-top: 25rem;
-    width: 80%;
+    width: 50%;
     height: auto;
-    padding: 4rem 0rem;
+    padding: 2rem 0rem;
     border-radius: 1rem;
     background-color: white;
     box-shadow: 15px 15px 135px black;
@@ -155,7 +155,7 @@ export default class AddNewProduct extends Vue {
       font-weight: 600;
       letter-spacing: 0.2rem;
       text-transform: uppercase;
-      margin:0.5rem 0rem;
+      margin: 0.5rem 0rem;
     }
 
     &__wrapper {
@@ -168,13 +168,13 @@ export default class AddNewProduct extends Vue {
     }
     &__input {
       padding: 1rem 1rem;
-      border: 0.2rem solid rgb(220,220,220);
+      border: 0.2rem solid rgb(220, 220, 220);
       border-radius: 1rem;
       font-family: "MOntserrat";
       font-size: 1.3rem;
       background-color: transparent;
       transition: 0.2s ease-in-out;
-      font-weight:500;
+      font-weight: 500;
       outline: none;
 
       &:focus {

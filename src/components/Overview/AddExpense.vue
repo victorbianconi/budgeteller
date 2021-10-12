@@ -1,14 +1,30 @@
 <template>
   <div class="add-expense">
     <div class="add-expense__modal">
-      <click-button @click="$emit('closeModal')" icon="closeIcon" status="back" positioning="absolute"></click-button>
+      <click-button
+        @click="$emit('closeModal')"
+        icon="closeIcon"
+        status="back"
+        positioning="absolute"
+      ></click-button>
       <h3 class="add-expense__title">{{ modalTitle }}</h3>
       <p class="add-expense__subtitle" @click="$emit('closeModal')">
         {{ modalSubtitle }}
       </p>
       <div class="add-expense__buttons-container">
-        <click-button @click="$emit('createNewProduct')" status="v2" positioning="center">New Product</click-button>
-        <click-button status="v2" positioning="center">Existing Product</click-button>
+        <click-button
+          containerWidthPercentage="90"
+          @click="$emit('createNewProduct')"
+          status="v2"
+          positioning="center"
+          >New Product</click-button
+        >
+        <click-button
+          containerWidthPercentage="90"
+          status="v2"
+          positioning="center"
+          >Existing Product</click-button
+        >
       </div>
     </div>
   </div>
@@ -62,7 +78,7 @@ export default class AddExpense extends Vue {
     font-size: 1.5rem;
     margin: 1rem 0rem;
     text-align: center;
-    width:90%;
+    width: 90%;
     line-height: 2.3rem;
   }
 
