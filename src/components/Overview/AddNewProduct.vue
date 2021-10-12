@@ -151,7 +151,7 @@ export default class AddNewProduct extends Vue {
     margin: 2rem 0rem;
 
     &__title {
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       font-weight: 600;
       letter-spacing: 0.2rem;
       text-transform: uppercase;
@@ -168,16 +168,22 @@ export default class AddNewProduct extends Vue {
     }
     &__input {
       padding: 1rem 1rem;
-      border: 0.2rem solid var(--main-color);
+      border: 0.2rem solid rgb(220,220,220);
       border-radius: 1rem;
       font-family: "MOntserrat";
       font-size: 1.3rem;
       background-color: transparent;
       transition: 0.2s ease-in-out;
       font-weight:500;
+      outline: none;
+
+      &:focus {
+        border-color: var(--main-color);
+      }
 
       &:hover {
         box-shadow: 5px 5px 30px darkgrey;
+        border-color: darkgrey;
       }
     }
     &__button {
