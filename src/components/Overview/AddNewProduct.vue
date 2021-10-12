@@ -12,23 +12,64 @@
         {{ modalSubtitle }}
       </p>
       <div class="add-new-product__form">
-        <FormulateForm>
-          <h4 class="add-new-product__form__title">Product information</h4>
-          <FormulateInput
-            label-class="add-new-product__form__label"
-            :input-class="(context, classes) => ['add-new-product__form__input'].concat(classes)"
-            type="text"
-            name="name"
-            label="Name"
-          />
-          <FormulateInput type="text" name="email" label="Category" />
-          <h4 class="add-new-product__form__title">Transaction information</h4>
-          <FormulateInput type="number" name="price" label="Price" />
-          <FormulateInput type="number" name="quantity" label="Quantity" />
-          <FormulateInput
-            type="submit"
-            label="Create new product and add transaction"
-          />
+        <FormulateForm class="add-new-product__formulate-form">
+          <div class="add-new-product__form__inputs">
+            <h4 class="add-new-product__form__title">Product information</h4>
+            <FormulateInput
+              label-class="add-new-product__form__label"
+              wrapper-class="add-new-product__form__wrapper"
+              :input-class="
+                (context, classes) =>
+                  ['add-new-product__form__input'].concat(classes)
+              "
+              type="text"
+              name="name"
+              placeholder="Name"
+            />
+            <FormulateInput
+              label-class="add-new-product__form__label"
+              wrapper-class="add-new-product__form__wrapper"
+              :input-class="
+                (context, classes) =>
+                  ['add-new-product__form__input'].concat(classes)
+              "
+              type="text"
+              name="category"
+              placeholder="Category"
+            />
+          </div>
+
+          <div class="add-new-product__form__inputs">
+            <h4 class="add-new-product__form__title">
+              Transaction information
+            </h4>
+            <FormulateInput
+              label-class="add-new-product__form__label"
+              wrapper-class="add-new-product__form__wrapper"
+              :input-class="
+                (context, classes) =>
+                  ['add-new-product__form__input'].concat(classes)
+              "
+              type="number"
+              name="price"
+              placeholder="Price"
+            />
+            <FormulateInput
+              label-class="add-new-product__form__label"
+              wrapper-class="add-new-product__form__wrapper"
+              :input-class="
+                (context, classes) =>
+                  ['add-new-product__form__input'].concat(classes)
+              "
+              type="text"
+              name="quantity"
+              placeholder="Quantity"
+            />
+          </div>
+
+          <click-button status="v2--widthAuto"
+            >Create product and add transaction</click-button
+          >
         </FormulateForm>
       </div>
     </div>
@@ -52,7 +93,7 @@ export default class AddNewProduct extends Vue {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="scss">
+<style lang="scss">
 .add-new-product {
   width: 100vw;
   height: 100vh;
@@ -60,6 +101,21 @@ export default class AddNewProduct extends Vue {
   display: flex;
   justify-content: center;
   align-items: center;
+
+  &__form__inputs {
+    margin: .5rem 0rem;
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  &__formulate-form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
 
   &__modal {
     margin-top: 25rem;
@@ -91,22 +147,19 @@ export default class AddNewProduct extends Vue {
     line-height: 2.3rem;
   }
 
-  &__buttons-container {
-    display: flex;
-    width: 90%;
-    justify-content: space-around;
-  }
-  &__button {
-    display: flex;
-    justify-content: center;
-    border: none;
-    background-color: var(--main-color);
-  }
   &__form {
-    margin: 1rem 0rem;
+    margin: 2rem 0rem;
 
     &__title {
-      font-size: 1.4rem;
+      font-size: 1.2rem;
+      font-weight: 600;
+      letter-spacing: 0.2rem;
+      text-transform: uppercase;
+      margin:0.5rem 0rem;
+    }
+
+    &__wrapper {
+      margin: 0.5rem 0rem;
     }
 
     &__label {
@@ -115,17 +168,37 @@ export default class AddNewProduct extends Vue {
     }
     &__input {
       padding: 1rem 1rem;
-      border: none;
+      border: 0.2rem solid var(--main-color);
       border-radius: 1rem;
+      font-family: "MOntserrat";
+      font-size: 1.3rem;
+      background-color: transparent;
+      transition: 0.2s ease-in-out;
+      font-weight:500;
+
+      &:hover {
+        box-shadow: 5px 5px 30px darkgrey;
+      }
+    }
+    &__button {
+      padding: 1rem 2rem;
+      font-family: "MOntserrat";
+      font-size: 1.3rem;
+      font-weight: 500;
+      border-radius: 1rem;
+      border: none;
+      margin-top: 1rem;
     }
   }
 }
 
 @keyframes fadeIn {
   from {
+    transform: scale(0.6);
     opacity: 0;
   }
   to {
+    transform: scale(1);
     opacity: 1;
   }
 }

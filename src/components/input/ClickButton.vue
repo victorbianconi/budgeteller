@@ -123,6 +123,9 @@ export default class ClickButton extends Vue {
     color: white;
     padding: 2rem 1rem;
     width: 95%;
+    display: flex;
+    justify-content:center;
+    white-space:nowrap;
     border: 0.2rem solid transparent;
     transition: 0.25s ease-in-out all;
     font-size:1.2rem;
@@ -133,6 +136,30 @@ export default class ClickButton extends Vue {
       background-color: var(--darker-blue);
       color: var(--main-color);
     }
+
+    &--widthAuto {
+      background-color: var(--main-color);
+      color: white;
+      padding: 2rem 1rem;
+      width: auto;
+      display: flex;
+      justify-content:center;
+      white-space:nowrap;
+      border: 0.2rem solid transparent;
+      transition: 0.25s ease-in-out all;
+      font-size:1.2rem;
+      letter-spacing: 0.2rem;
+      text-transform: uppercase;
+
+      &:hover {
+        background-color: var(--darker-blue);
+        color: var(--main-color);
+      }
+
+    }
+
+
+
   }
 
   &--back {
