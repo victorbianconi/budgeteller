@@ -1,11 +1,14 @@
 import Vue from "vue";
 import Vuex from "vuex";
+import VuexPersistence from "vuex-persist";
 
 Vue.use(Vuex);
 
-export default new Vuex.Store({
-  state: {},
-  mutations: {},
-  actions: {},
-  modules: {},
+const vuexLocal = new VuexPersistence<RootState>({
+  storage: window.localStorage,
 });
+
+const store = new Vuex.Store({
+  plugins: [vuexLocal.plugin],
+});
+export default store;

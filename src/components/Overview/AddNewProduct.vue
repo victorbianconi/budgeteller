@@ -58,6 +58,7 @@
                   ['add-new-product__form__input'].concat(classes)
               "
               type="number"
+              step="any"
               name="price"
               placeholder="Price (€)"
             />
@@ -75,9 +76,7 @@
             />
           </div>
 
-          <click-button
-            type="submit"
-            status="v2--widthAuto"
+          <click-button type="submit" status="v2--widthAuto"
             >Create product and add transaction</click-button
           >
         </FormulateForm>
@@ -90,6 +89,9 @@
 import { Component, Prop, Vue } from "vue-property-decorator";
 import ClickButton from "@/components/input/ClickButton.vue";
 import VueFormulate from "@braid/vue-formulate";
+import productsState from "@/store/modules/products";
+import transactionsState from "@/store/modules/transactions";
+import { getModule } from "vuex-module-decorators";
 
 Vue.use(VueFormulate);
 
@@ -99,29 +101,51 @@ Vue.use(VueFormulate);
 export default class AddNewProduct extends Vue {
   @Prop() private modalTitle!: string;
   @Prop() private modalSubtitle!: string;
+  products: productsState = getModule(productsState);
+  transactions: transactionsState = getModule(transactionsState);
 
   formValues = {
     name: "",
     category: "",
-    price:"",
-    quantity:""
+    price: "",
+    quantity: "",
+    date: new Date(),
   };
 
-  createProductTransaction(data: {name: string, category: string, price:number, quantity:number}) {
-    console.log("Create product and transaction")
-    console.log(data)
+  createProductTransaction(data: {
+    name: string;
+    category: string;
+    price: number;
+    quantity: number;
+    date: Date;
+  }) {
+    const product = {};
+    const transaction = {};
+    for (const property in data) {
+      if (property == "name") {
+        transaction[property] = data[property];
+        product[property] = data[property];
+      } else if (property == "category") {
+        product[property] = data[property];
+      } else {
+        transaction[property] = data[property];
+      }
+    }
+    this.products.createProduct(product);
+    this.transactions.createTransaction(transaction);
+    this.$emit("closeAddNewProductModal");
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss">
-
 .formulate-input-error {
   color: red;
   font-family: MOntserrat;
   list-style-type: none;
   font-size: 1.3rem;
+  animation: fadeIn 0.2s ease;
 }
 
 .add-new-product {

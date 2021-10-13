@@ -12,6 +12,7 @@
       modalSubtitle="Type the product info below including product name and category."
       @closeModal="closeAddExpenseModal"
       @goBackToAddExpense="openAddExpenseModal"
+      @closeAddNewProductModal="closeAddNewProductModal"
       v-if="isAddNewProductModal"
     />
     <page-title
